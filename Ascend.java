@@ -3,9 +3,9 @@
 public class Ascend {
 	public static void main(String[] args) {
 	// Generates three integer random numbers in range 1-100
-		int num1 ;
-		int num2 ;
-		int num3 ;
+		int num1 = (int)(Math.random() * 100 + 1);
+		int num2 = (int)(Math.random() * 100 + 1);
+		int num3 = (int)(Math.random() * 100 + 1);
 		//Prints biggest number
 		if (num1 > num2 || num1 > num3) {
 			System.out.println(num1);
