@@ -12,7 +12,7 @@ public class TimeFormat {
 		int hours = Integer.parseInt("" + args[0].charAt(0) + args[0].charAt(1));
 		// Does the same with the minutes part of the input.
 		int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
-        // Midnight time
+        // Midnight time and minutes 00 case
 		if (minutes == 0 || hours == 0 || hours == 24) {
 			if (hours > 12 && hours < 24 && hours != 0) {
 				System.out.println(hours + ":" + "00" + "PM");
