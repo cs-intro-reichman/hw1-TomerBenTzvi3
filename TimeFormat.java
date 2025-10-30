@@ -13,10 +13,15 @@ public class TimeFormat {
 		// Does the same with the minutes part of the input.
 		int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
         // Replace this comment with the rest of your code
-		if (hours == 0 || hours == 24) {
-			System.out.println("0" + ":" + minutes + " AM");
+	 	if (minutes < 10 && minutes >= 00) {
+		 	if (hours <= 12) {
+			System.out.println(hours + ":" + "0" + minutes + " AM");
+			}
+			if (hours > 12 && hours < 24) {
+				System.out.println(hours + ":" + "0" + minutes + "PM");
+			}
 		}
-	 	if (minutes == 00) {
+		if (minutes == 0 || hours == 0 || hours == 24) {
 			if (hours > 12 && hours < 24 && hours != 0) {
 				System.out.println(hours + ":" + "00" + "PM");
 			}
@@ -24,10 +29,10 @@ public class TimeFormat {
 				System.out.println(hours + ":" + "00" + " AM");
 			}
 		}
-		else if (hours <= 12) {
+		else if (hours <= 12 && minutes >= 10) {
 			System.out.println(hours + ":" + minutes + " AM");
 		}
-		else if (hours > 12 && hours < 24) {
+		else if (hours > 12 && hours < 24 && minutes >= 10) {
 			System.out.println((hours - 12) + ":" + minutes + " PM");
 		}
 		else if (hours > 24 || minutes > 59) {
