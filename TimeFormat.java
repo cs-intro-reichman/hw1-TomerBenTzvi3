@@ -30,7 +30,7 @@ public class TimeFormat {
 		}
 		// A condition where the minutes number are below 10
 		if (minutes < 10 && minutes >= 00) {
-		 	if (hours <= 12) {
+		 	if (hours <= 12 && hours > 0) {
 			System.out.println(hours + ":" + "0" + minutes);
 			}
 			if (hours > 12 && hours < 24) {
