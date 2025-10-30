@@ -12,8 +12,24 @@ public class TimeFormat {
 		int hours = Integer.parseInt("" + args[0].charAt(0) + args[0].charAt(1));
 		// Does the same with the minutes part of the input.
 		int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
-        // Replace this comment with the rest of your code
-	 	if (minutes < 10 && minutes >= 00) {
+        // midnight time
+		if (minutes == 0 || hours == 0 || hours == 24) {
+			if (hours > 12 && hours < 24 && hours != 0) {
+				System.out.println(hours + ":" + "00" + "PM");
+			}
+			else if (hours <= 12 || hours == 0) {
+				System.out.println(hours + ":" + "00");
+			}
+		}
+		//gives the time AM/PM format
+		else if (hours <= 12 && minutes >= 10) {
+			System.out.println(hours + ":" + minutes + " AM");
+		}
+		else if (hours > 12 && hours < 24 && minutes >= 10) {
+			System.out.println((hours - 12) + ":" + minutes + " PM");
+		}
+		// A condition where the minutes number are below 10
+		if (minutes < 10 && minutes >= 00) {
 		 	if (hours <= 12) {
 			System.out.println(hours + ":" + "0" + minutes + " AM");
 			}
@@ -21,20 +37,7 @@ public class TimeFormat {
 				System.out.println(hours + ":" + "0" + minutes + "PM");
 			}
 		}
-		if (minutes == 0 || hours == 0 || hours == 24) {
-			if (hours > 12 && hours < 24 && hours != 0) {
-				System.out.println(hours + ":" + "00" + "PM");
-			}
-			else if (hours <= 12 || hours == 0) {
-				System.out.println(hours + ":" + "00" + " AM");
-			}
-		}
-		else if (hours <= 12 && minutes >= 10) {
-			System.out.println(hours + ":" + minutes + " AM");
-		}
-		else if (hours > 12 && hours < 24 && minutes >= 10) {
-			System.out.println((hours - 12) + ":" + minutes + " PM");
-		}
+		// an error statement where the user gives outranged input
 		else if (hours > 24 || minutes > 59) {
 			System.out.println("error, time in minutes should be 0 to 59, time in hours should be 0 to 23");
 		}
